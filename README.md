@@ -22,6 +22,9 @@ Sử dụng lệnh:
 ## Hoàn thành quiz
 
 Nạp dữ liệu quiz vào quiz_list.json
+    start: ID của đáp án A câu 1 trong mỗi quiz
+    amount: Số lượng câu hỏi
+    list: Danh sách số lượng đáp án mỗi câu 
 
 Sử dụng lệnh:
  !quiz {SessionID} {ID quiz}
