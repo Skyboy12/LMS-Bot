@@ -134,3 +134,19 @@ class SEND_PACKET:
                     return f"⏩ {ID} Bạn không có quyền truy cập!"
             except json.JSONDecodeError:
                 pass
+    def ADD_QUIZ_DATA(ID, start, amount):
+        with open(QUIZ_LIST, "r") as f:
+            quiz_data = json.load(f)
+        quiz_data["quiz_ids"][str(ID)] = {
+            "start": start,
+            "amount": amount,
+            "list": [4] * amount
+        }
+        with open(QUIZ_LIST, "w") as f:
+            json.dump(quiz_data, f)
+    def FIX_QUIZ_DATA_LIST(ID, list_):
+        with open(QUIZ_LIST, "r") as f:
+            quiz_data = json.load(f)
+        quiz_data["quiz_ids"][str(ID)]["list"] = list_
+        with open(QUIZ_LIST, "w") as f:
+            json.dump(quiz_data, f)
