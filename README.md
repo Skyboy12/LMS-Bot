@@ -7,7 +7,21 @@ USER_AGENT = Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML
 
 H_DATA = application/
 
-QUIZ_LIST = quiz_list.
+QUIZ_LIST = quiz_list.json
 
 BOT_TOKEN = {Token bot Discord}
 
+
+## Sử dụng
+
+# Hoàn thành slide
+
+Sử dụng lệnh:
+  !slide {SessionID} {ID slide}
+
+# Hoàn thành quiz
+
+Nạp dữ liệu quiz vào quiz_list.json
+
+Sử dụng lệnh:
+ !quiz {SessionID} {ID quiz}
