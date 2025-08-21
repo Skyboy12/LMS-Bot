@@ -72,6 +72,17 @@ async def quiz_command(ctx, session_id: str, quiz_id: int):
         None, SEND_PACKET.QUIZ, session_id, quiz_id)
     await ctx.send(result)
 
+@bot.command(name='add_quiz')
+async def add_quiz_command(ctx, quiz_id: int, start: int, amount: int):
+    logging.info(f"User {ctx.author.name}#{ctx.author.discriminator} đã gửi lệnh add_quiz với quiz_id: {quiz_id}, start: {start}, amount: {amount}.")
+    SEND_PACKET.ADD_QUIZ_DATA(quiz_id, start, amount)
+    await ctx.send(f"Đã thêm quiz `{quiz_id}` với start: {start} và amount: {amount}.")
 
+@bot.command(name='fix_quiz')
+async def fix_quiz_command(ctx, quiz_id: int, list_str):
+    logging.info(f"User {ctx.author.name}#{ctx.author.discriminator} đã gửi lệnh fix_quiz với quiz_id: {quiz_id}.")
+    list_ = list(map(int, list_str.split(",")))
+    SEND_PACKET.FIX_QUIZ_DATA_LIST(quiz_id, list_)
+    await ctx.send(f"Đã sửa dữ liệu quiz `{quiz_id}`.")
 if __name__ == "__main__":
     bot.run(TOKEN)
