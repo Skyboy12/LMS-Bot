@@ -1,4 +1,4 @@
-## Thiết lập .env
+# Thiết lập .env
 SLIDE_URL = https://lms.ptit.edu.vn/slides/slide/set_completed
 
 QUIZ_URL = https://lms.ptit.edu.vn/slides/slide/quiz/
@@ -12,14 +12,14 @@ QUIZ_LIST = quiz_list.json
 BOT_TOKEN = {Token bot Discord}
 
 
-## Sử dụng
+# Sử dụng
 
-# Hoàn thành slide
+## Hoàn thành slide
 
 Sử dụng lệnh:
   !slide {SessionID} {ID slide}
 
-# Hoàn thành quiz
+## Hoàn thành quiz
 
 Nạp dữ liệu quiz vào quiz_list.json
 
