@@ -43,15 +43,15 @@ class SEND_PACKET:
                         message = "Không có quyền truy cập vào slide."
                     elif error == "public_user":
                         message = "Người dùng công khai không thể truy cập slide. Vui lòng kiểm tra lại sessionID"
-                    elif 'data' in error:
-                        data = error['data']
-                        message = data.get('message', 'Đã xảy ra lỗi không xác định.')
                     else:
                         message = 'Đã xảy ra lỗi không xác định.'
                 elif 'channel_completion' in result:
                     channel_completion = result['channel_completion']
                     if channel_completion == 100:
                         message = "Đã hoàn thành slide. Vui lòng kiểm tra và báo lại nếu có vấn đề."
+                elif 'error' in response_json:
+                        data = response_json['error']['data']
+                        message = data.get('message', 'Đã xảy ra lỗi không xác định.')
 
             except (ValueError, KeyError):
                 message = "Không thể phân tích dữ liệu trả về từ máy chủ."
@@ -134,3 +134,19 @@ class SEND_PACKET:
                     return f"⏩ {ID} Bạn không có quyền truy cập!"
             except json.JSONDecodeError:
                 pass
+    def ADD_QUIZ_DATA(ID, start, amount):
+        with open(QUIZ_LIST, "r") as f:
+            quiz_data = json.load(f)
+        quiz_data["quiz_ids"][str(ID)] = {
+            "start": start,
+            "amount": amount,
+            "list": [4] * amount
+        }
+        with open(QUIZ_LIST, "w") as f:
+            json.dump(quiz_data, f)
+    def FIX_QUIZ_DATA_LIST(ID, list_):
+        with open(QUIZ_LIST, "r") as f:
+            quiz_data = json.load(f)
+        quiz_data["quiz_ids"][str(ID)]["list"] = list_
+        with open(QUIZ_LIST, "w") as f:
+            json.dump(quiz_data, f)
