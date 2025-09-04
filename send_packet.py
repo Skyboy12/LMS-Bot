@@ -46,9 +46,7 @@ class SEND_PACKET:
                     else:
                         message = 'Đã xảy ra lỗi không xác định.'
                 elif 'channel_completion' in result:
-                    channel_completion = result['channel_completion']
-                    if channel_completion == 100:
-                        message = "Đã hoàn thành slide. Vui lòng kiểm tra và báo lại nếu có vấn đề."
+                    message = "Đã hoàn thành slide. Vui lòng kiểm tra và báo lại nếu có vấn đề."
                 elif 'error' in response_json:
                         data = response_json['error']['data']
                         message = data.get('message', 'Đã xảy ra lỗi không xác định.')
