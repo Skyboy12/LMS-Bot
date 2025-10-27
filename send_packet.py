@@ -9,7 +9,9 @@ SLIDE_URL = os.getenv("SLIDE_URL")
 QUIZ_URL = os.getenv("QUIZ_URL")
 USER_AGENT = os.getenv("USER_AGENT")
 H_DATA = os.getenv("H_DATA")
-QUIZ_LIST = os.getenv("QUIZ_LIST")
+
+# Fallback to local quiz_list.json if QUIZ_LIST is not set in environment
+QUIZ_LIST = os.getenv("QUIZ_LIST") or os.path.join(os.path.dirname(__file__), "quiz_list.json")
 
 class SEND_PACKET:
     def SLIDE(SESSION_ID, ID):
@@ -59,20 +61,59 @@ class SEND_PACKET:
             return ["Yêu cầu thất bại", response.status_code, message]
 
     def QUIZ_DATA(ID):
-        with open(QUIZ_LIST, "r") as f:
+        """Đọc dữ liệu quiz cho slide ID.
+
+        Trả về:
+        - quiz_id_list: list[int] các quiz-id theo slide
+        - question_answer_start_list: list[int] vị trí bắt đầu trả lời cho từng quiz-id
+        - question_amount_list: list[int] số lượng đáp án có thể thử cho từng quiz-id
+
+        Ném ValueError nếu dữ liệu không hợp lệ hoặc không tìm thấy ID.
+        """
+        # Đảm bảo file tồn tại
+        if not os.path.isfile(QUIZ_LIST):
+            raise FileNotFoundError(f"Không tìm thấy file QUIZ_LIST tại: {QUIZ_LIST}")
+
+        with open(QUIZ_LIST, "r", encoding="utf-8") as f:
             quiz_data = json.load(f)
-        quiz_ids = quiz_data.get("quiz_ids", {})
-        quiz_list = quiz_ids.get(str(ID), [])
-        quiz_start = quiz_data.get("quiz_data", {}).get("question_answer_start", [])
-        quiz_amount = quiz_data.get("quiz_data", {}).get("question_amount", [])
-        quiz_start_list = []
-        quiz_amount_list = []
-        if not (len(quiz_start_list) == len(quiz_list) and len(quiz_amount_list) == len(quiz_list)):
-            raise ValueError("Dữ liệu quiz không hợp lệ trong quiz_list.json")
-        for quiz_id in quiz_list:
-            quiz_start_list.append(quiz_start[quiz_id])
-            quiz_amount_list.append(quiz_amount[quiz_id])
-        return quiz_list, quiz_start_list, quiz_amount_list
+
+        quiz_ids_map = quiz_data.get("quiz_ids", {})
+        quiz_id_list = quiz_ids_map.get(str(ID))
+        if not quiz_id_list:
+            raise ValueError(f"Không tìm thấy quiz_ids cho slide ID={ID}")
+
+        quiz_data_block = quiz_data.get("quiz_data", {})
+        start_arr = quiz_data_block.get("question_answer_start", [])
+        # Hỗ trợ cả key bị gõ sai 'question_ammount' lẫn 'question_amount'
+        amount_arr = quiz_data_block.get("question_amount")
+        if amount_arr is None:
+            amount_arr = quiz_data_block.get("question_ammount", [])
+
+        if not isinstance(start_arr, list) or not isinstance(amount_arr, list):
+            raise ValueError("question_answer_start hoặc question_amount/ammount không phải dạng list")
+
+        question_answer_start_list: list[int] = []
+        question_amount_list: list[int] = []
+
+        max_index_needed = max(quiz_id_list)
+        if max_index_needed >= len(start_arr):
+            raise ValueError(
+                f"Index vượt quá giới hạn trong question_answer_start: cần {max_index_needed}, có {len(start_arr)-1}"
+            )
+        if max_index_needed >= len(amount_arr):
+            raise ValueError(
+                f"Index vượt quá giới hạn trong question_amount/ammount: cần {max_index_needed}, có {len(amount_arr)-1}"
+            )
+
+        for qid in quiz_id_list:
+            question_answer_start_list.append(start_arr[qid])
+            question_amount_list.append(amount_arr[qid])
+
+        # Kiểm tra độ dài khớp
+        if not (len(question_answer_start_list) == len(quiz_id_list) == len(question_amount_list)):
+            raise ValueError("Độ dài dữ liệu không khớp giữa quiz_ids, question_answer_start và question_amount/ammount")
+
+        return quiz_id_list, question_answer_start_list, question_amount_list
     
     def extract_answer(response_text,num_submits):
         try:
@@ -133,34 +174,61 @@ class SEND_PACKET:
                 pass
 
     def ADD_QUIZ_DATA(ID, quiz_id_list, question_answer_start, question_amount):
-        with open(QUIZ_LIST, "r") as f:
+        # Validate input lengths
+        if not (len(quiz_id_list) == len(question_answer_start) == len(question_amount)):
+            raise ValueError("Đầu vào không hợp lệ: độ dài quiz_id_list, question_answer_start, question_amount phải bằng nhau")
+
+        if not os.path.isfile(QUIZ_LIST):
+            raise FileNotFoundError(f"Không tìm thấy file QUIZ_LIST tại: {QUIZ_LIST}")
+
+        with open(QUIZ_LIST, "r", encoding="utf-8") as f:
             quiz_data = json.load(f)
-        # Thêm dữ liệu quiz mới vào quiz_data
-        # Tìm giá trị lớn nhất hiện có trong quiz_id_list và so sánh với question_answer_start và question_amount tương ứng để thêm dữ liệu mới
-        max_quiz_id_list = max(quiz_id_list) if quiz_id_list else 0
-        length_question_answer_start_in_quiz_data = len(quiz_data["quiz_data"]["question_answer_start"])
-        length_question_amount_in_quiz_data = len(quiz_data["quiz_data"]["question_amount"])
-        if max_quiz_id_list >= length_question_answer_start_in_quiz_data:
-            for i in range(length_question_answer_start_in_quiz_data, max_quiz_id_list + 1):
-                quiz_data["quiz_data"]["question_answer_start"][i] = 0
-        if max_quiz_id_list >= length_question_amount_in_quiz_data:
-            for i in range(length_question_amount_in_quiz_data, max_quiz_id_list + 1):
-                quiz_data["quiz_data"]["question_amount"][i] = 0
-        # Cập nhật quiz_ids
-        quiz_data["quiz_ids"][str(ID)] = quiz_id_list
-        for i in range(len(quiz_id_list)):
-            quiz_data["quiz_data"]["question_answer_start"][quiz_id_list[i]] = question_answer_start[i]
-            quiz_data["quiz_data"]["question_amount"][quiz_id_list[i]] = question_amount[i]
-        with open(QUIZ_LIST, "w") as f:
-            json.dump(quiz_data, f)
+
+        if "quiz_data" not in quiz_data:
+            quiz_data["quiz_data"] = {}
+
+        qdata = quiz_data["quiz_data"]
+        # Hỗ trợ cả 'question_amount' và 'question_ammount' (bị gõ sai)
+        amount_key = "question_amount" if "question_amount" in qdata else ("question_ammount" if "question_ammount" in qdata else "question_amount")
+
+        if "question_answer_start" not in qdata or not isinstance(qdata.get("question_answer_start"), list):
+            qdata["question_answer_start"] = []
+        if amount_key not in qdata or not isinstance(qdata.get(amount_key), list):
+            qdata[amount_key] = []
+
+        start_arr = qdata["question_answer_start"]
+        amount_arr = qdata[amount_key]
+
+        max_index = max(quiz_id_list) if quiz_id_list else -1
+        # Mở rộng mảng tới chỉ số lớn nhất cần thiết
+        while len(start_arr) <= max_index:
+            start_arr.append(0)
+        while len(amount_arr) <= max_index:
+            amount_arr.append(0)
+
+        # Cập nhật quiz_ids map
+        if "quiz_ids" not in quiz_data or not isinstance(quiz_data.get("quiz_ids"), dict):
+            quiz_data["quiz_ids"] = {}
+        quiz_data["quiz_ids"][str(ID)] = list(quiz_id_list)
+
+        # Ghi dữ liệu cho từng quiz-id tương ứng
+        for idx, qid in enumerate(quiz_id_list):
+            start_arr[qid] = question_answer_start[idx]
+            amount_arr[qid] = question_amount[idx]
+
+        with open(QUIZ_LIST, "w", encoding="utf-8") as f:
+            json.dump(quiz_data, f, ensure_ascii=False, indent=4)
         return "Đã thêm dữ liệu quiz thành công!"
 
-if __name__ == "test_quiz_data":
-    print("Nhập vào ID quiz:")
-    id = int(input())
-    quiz_ids, starts, amounts = SEND_PACKET.QUIZ_DATA(id)
+if __name__ == "__main__":
+    try:
+        print("Nhập vào ID quiz:")
+        id_value = int(input())
+        quiz_ids, starts, amounts = SEND_PACKET.QUIZ_DATA(id_value)
 
-    print(f"ID quiz: {id}")
-    print(f"Quiz IDs: {quiz_ids}")
-    print(f"Starts: {starts}")
-    print(f"Amounts: {amounts}")
+        print(f"ID quiz: {id_value}")
+        print(f"Quiz IDs: {quiz_ids}")
+        print(f"Starts: {starts}")
+        print(f"Amounts: {amounts}")
+    except Exception as e:
+        print(f"Lỗi khi đọc dữ liệu quiz: {e}")
