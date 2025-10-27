@@ -206,4 +206,7 @@ async def show_quiz_command(ctx, id: int):
         except Exception as e2:
             await ctx.send(f"❌ Không thể đọc dữ liệu quiz: {e2}")
 
+bot.run(TOKEN)
+
+
 
