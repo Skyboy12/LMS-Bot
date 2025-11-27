@@ -14,6 +14,68 @@ H_DATA = os.getenv("H_DATA")
 QUIZ_LIST = os.getenv("QUIZ_LIST") or os.path.join(os.path.dirname(__file__), "quiz_list.json")
 
 class SEND_PACKET:
+    def PING():
+        """Ping server để kiểm tra kết nối.
+        
+        Trả về:
+        - status_code: HTTP status code
+        - response_time: thời gian phản hồi (ms)
+        - message: thông báo kết quả
+        """
+        import time
+        try:
+            headers = {
+                "Content-Type": H_DATA,
+                "Accept": H_DATA,
+                "User-Agent": USER_AGENT
+            }
+            payload = {
+                "jsonrpc": "2.0",
+                "method": "call",
+                "params": {},
+                "id": 0
+            }
+            
+            start_time = time.time()
+            response = requests.post(SLIDE_URL, json=payload, headers=headers, timeout=10)
+            response_time = round((time.time() - start_time) * 1000, 2)
+            
+            if response.status_code == 200:
+                return {
+                    "status": "online",
+                    "status_code": response.status_code,
+                    "response_time": response_time,
+                    "message": "Server đang hoạt động bình thường"
+                }
+            else:
+                return {
+                    "status": "warning",
+                    "status_code": response.status_code,
+                    "response_time": response_time,
+                    "message": f"Server phản hồi với status code {response.status_code}"
+                }
+        except requests.exceptions.Timeout:
+            return {
+                "status": "timeout",
+                "status_code": 0,
+                "response_time": 0,
+                "message": "Timeout: Server không phản hồi trong 10 giây"
+            }
+        except requests.exceptions.ConnectionError:
+            return {
+                "status": "offline",
+                "status_code": 0,
+                "response_time": 0,
+                "message": "Không thể kết nối tới server"
+            }
+        except Exception as e:
+            return {
+                "status": "error",
+                "status_code": 0,
+                "response_time": 0,
+                "message": f"Lỗi: {str(e)}"
+            }
+    
     def SLIDE(SESSION_ID, ID):
         headers = {
             "Content-Type": H_DATA,
@@ -135,8 +197,11 @@ class SEND_PACKET:
         quiz_id_list, question_answer_start, question_amount = SEND_PACKET.QUIZ_DATA(ID)
         amount = len(quiz_id_list)
         answer_list = question_answer_start.copy()
+        max_attempts = 10  # tránh vòng lặp vô hạn nếu session lỗi
+        attempts = 0
         
         while True:
+            attempts += 1
             print(f"Thử {list(answer_list)}")
 
             payload = {
@@ -163,7 +228,17 @@ class SEND_PACKET:
             
             try:
                 response_json = json.loads(response_text)
+                # Nếu server trả về lỗi cấp cao (không nằm trong result)
+                if 'error' in response_json and not isinstance(response_json.get('error'), str):
+                    data = response_json['error'].get('data', {})
+                    msg = data.get('message') or str(response_json['error'])
+                    if msg:
+                        return f"⏩ {ID} Lỗi: {msg}"
+
                 error = response_json.get("result", {}).get("error")
+                # Chặn vòng lặp khi session là public_user (không đăng nhập/hết hạn)
+                if error == "public_user":
+                    return f"⏩ {ID} Session không hợp lệ hoặc đã hết hạn (public_user). Hãy đăng nhập lại."
                 if error == "slide_quiz_done":
                     return f"⏩ {ID} Đã hoàn thành!"
                 if error == "slide_quiz_incomplete":
@@ -171,7 +246,12 @@ class SEND_PACKET:
                 if error == "slide_access":
                     return f"⏩ {ID} Bạn không có quyền truy cập!"
             except json.JSONDecodeError:
-                pass
+                # Nếu không parse được JSON, dừng để tránh lặp vô hạn
+                return f"⏩ {ID} Lỗi: Không thể đọc phản hồi từ server."
+
+            # Nếu đã thử quá số lần cho phép, dừng
+            if attempts >= max_attempts:
+                return f"⏩ {ID} Dừng sau {max_attempts} lần thử do không nhận được trạng thái hợp lệ."
 
     def ADD_QUIZ_DATA(ID, quiz_id_list, question_answer_start, question_amount):
         # Validate input lengths

@@ -1,5 +1,3 @@
-
-
 import discord
 from discord.ext import commands
 import os
@@ -48,29 +46,198 @@ bot = DiscordBot()
 @bot.command(name='ping')
 async def ping_command(ctx):
     logging.info(f"User {ctx.author.name}#{ctx.author.discriminator} đã gửi lệnh ping.")
-    await ctx.send("Pong!")
+    
+    # Gửi embed đang kiểm tra
+    embed = discord.Embed(
+        title="🏓 Ping Server",
+        description="Đang kiểm tra kết nối tới LMS server...",
+        color=discord.Color.blue()
+    )
+    embed.add_field(name="👤 Người yêu cầu", value=ctx.author.mention, inline=True)
+    status_msg = await ctx.send(embed=embed)
+    
+    loop = asyncio.get_running_loop()
+    
+    try:
+        result = await loop.run_in_executor(None, SEND_PACKET.PING)
+        
+        # Xác định màu sắc dựa trên status
+        if result["status"] == "online":
+            color = discord.Color.green()
+            icon = "✅"
+        elif result["status"] == "warning":
+            color = discord.Color.orange()
+            icon = "⚠️"
+        else:
+            color = discord.Color.red()
+            icon = "❌"
+        
+        # Tạo embed kết quả
+        result_embed = discord.Embed(
+            title=f"{icon} Server Status",
+            description=result["message"],
+            color=color
+        )
+        result_embed.add_field(name="👤 Người yêu cầu", value=ctx.author.mention, inline=True)
+        result_embed.add_field(name="📡 Status Code", value=f"`{result['status_code']}`", inline=True)
+        result_embed.add_field(name="⏱️ Response Time", value=f"`{result['response_time']}ms`", inline=True)
+        result_embed.add_field(name="🌐 Status", value=f"`{result['status'].upper()}`", inline=False)
+        
+        # Thêm bot latency
+        bot_latency = round(ctx.bot.latency * 1000, 2)
+        result_embed.add_field(name="🤖 Discord Bot Latency", value=f"`{bot_latency}ms`", inline=True)
+        
+        await status_msg.edit(embed=result_embed)
+        
+        logging.info(f"Ping result: {result['status']} - {result['response_time']}ms")
+        
+    except Exception as e:
+        logging.error(f"Lỗi khi ping server: {e}")
+        error_embed = discord.Embed(
+            title="❌ Lỗi Ping",
+            description=f"Không thể kiểm tra kết nối: {str(e)}",
+            color=discord.Color.red()
+        )
+        error_embed.add_field(name="👤 Người yêu cầu", value=ctx.author.mention, inline=True)
+        await status_msg.edit(embed=error_embed)
+        raise
 
 @bot.command(name='slide')
 async def slide_command(ctx, session_id: str, slide_id: int):
-    logging.info(f"User {ctx.author.name}#{ctx.author.discriminator} đã gửi lệnh slide với session_id: {session_id} và slide_id: {slide_id}.")
-    await ctx.send(f"Đang xử lý slide `{slide_id}`...")
+    # Tạo request ID để theo dõi
+    import time
+    request_id = f"{ctx.author.id}-{int(time.time())}"
+    
+    logging.info(f"[{request_id}] User {ctx.author.name}#{ctx.author.discriminator} đã gửi lệnh slide với session_id: {session_id[:8]}... và slide_id: {slide_id}.")
+    
+    # Gửi embed thông tin bắt đầu
+    embed = discord.Embed(
+        title="🎯 Xử lý Slide",
+        description=f"Đang xử lý slide `{slide_id}`...",
+        color=discord.Color.blue()
+    )
+    embed.add_field(name="👤 Người yêu cầu", value=ctx.author.mention, inline=True)
+    embed.add_field(name="🔑 Request ID", value=f"`{request_id[:16]}`", inline=True)
+    embed.add_field(name="📄 Slide ID", value=f"`{slide_id}`", inline=True)
+    embed.set_footer(text=f"Session: {session_id[:8]}...")
+    status_msg = await ctx.send(embed=embed)
+    
     loop = asyncio.get_running_loop()
     
-    result = await loop.run_in_executor(
-        None, SEND_PACKET.SLIDE, session_id, slide_id)
-    await ctx.send(result[0])
-    logging.info(result[1])
-    await ctx.send(result[2])
+    try:
+        result = await loop.run_in_executor(
+            None, SEND_PACKET.SLIDE, session_id, slide_id)
+        
+        logging.info(f"[{request_id}] Response: {result[1]}")
+        
+        # Tạo embed kết quả
+        result_embed = discord.Embed(
+            title="✅ Hoàn thành" if "hoàn thành" in result[2].lower() else "⚠️ Kết quả",
+            description=result[2],
+            color=discord.Color.green() if "hoàn thành" in result[2].lower() else discord.Color.orange()
+        )
+        result_embed.add_field(name="👤 Người yêu cầu", value=ctx.author.mention, inline=True)
+        result_embed.add_field(name="🔑 Request ID", value=f"`{request_id[:16]}`", inline=True)
+        result_embed.add_field(name="📄 Slide ID", value=f"`{slide_id}`", inline=True)
+        result_embed.add_field(name="📊 Status", value=result[0], inline=False)
+        result_embed.set_footer(text=f"Session: {session_id[:8]}...")
+        
+        await status_msg.edit(embed=result_embed)
+    except Exception as e:
+        logging.error(f"[{request_id}] Lỗi: {e}")
+        error_embed = discord.Embed(
+            title="❌ Lỗi",
+            description=f"Đã có lỗi xảy ra: {str(e)}",
+            color=discord.Color.red()
+        )
+        error_embed.add_field(name="👤 Người yêu cầu", value=ctx.author.mention, inline=True)
+        error_embed.add_field(name="🔑 Request ID", value=f"`{request_id[:16]}`", inline=True)
+        await status_msg.edit(embed=error_embed)
+        raise
 
 @bot.command(name='quiz')
 async def quiz_command(ctx, session_id: str, quiz_id: int):
-    logging.info(f"User {ctx.author.name}#{ctx.author.discriminator} đã gửi lệnh quiz với session_id: {session_id} và quiz_id: {quiz_id}.")
-    await ctx.send(f"Đang tìm đáp án quiz `{quiz_id}`... Việc này có thể mất một lúc.")
+    # Tạo request ID để theo dõi
+    import time
+    request_id = f"{ctx.author.id}-{int(time.time())}"
+    
+    logging.info(f"[{request_id}] User {ctx.author.name}#{ctx.author.discriminator} đã gửi lệnh quiz với session_id: {session_id[:8]}... và quiz_id: {quiz_id}.")
+    
+    # Kiểm tra xem có dữ liệu quiz không
+    try:
+        quiz_ids, starts, amounts = SEND_PACKET.QUIZ_DATA(quiz_id)
+        num_questions = len(quiz_ids)
+    except Exception as e:
+        num_questions = "?"
+        logging.warning(f"[{request_id}] Không thể đọc QUIZ_DATA: {e}")
+    
+    # Gửi embed thông tin bắt đầu
+    embed = discord.Embed(
+        title="📝 Xử lý Quiz",
+        description=f"Đang tìm đáp án cho quiz `{quiz_id}`...\nViệc này có thể mất vài phút.",
+        color=discord.Color.blue()
+    )
+    embed.add_field(name="👤 Người yêu cầu", value=ctx.author.mention, inline=True)
+    embed.add_field(name="🔑 Request ID", value=f"`{request_id[:16]}`", inline=True)
+    embed.add_field(name="📝 Quiz ID", value=f"`{quiz_id}`", inline=True)
+    embed.add_field(name="❓ Số câu hỏi", value=f"`{num_questions}`", inline=True)
+    embed.set_footer(text=f"Session: {session_id[:8]}... | Đang xử lý...")
+    status_msg = await ctx.send(embed=embed)
+    
     loop = asyncio.get_running_loop()
     
-    result = await loop.run_in_executor(
-        None, SEND_PACKET.QUIZ, session_id, quiz_id)
-    await ctx.send(result)
+    try:
+        result = await loop.run_in_executor(
+            None, SEND_PACKET.QUIZ, session_id, quiz_id)
+        
+        logging.info(f"[{request_id}] Quiz result: {result}")
+        
+        # Tạo embed kết quả
+        if "Đã hoàn thành" in result:
+            result_embed = discord.Embed(
+                title="✅ Quiz hoàn thành",
+                description=result,
+                color=discord.Color.green()
+            )
+        elif "Có lỗi" in result:
+            result_embed = discord.Embed(
+                title="⚠️ Quiz có lỗi",
+                description=result,
+                color=discord.Color.orange()
+            )
+        elif "không có quyền" in result.lower():
+            result_embed = discord.Embed(
+                title="🔒 Không có quyền truy cập",
+                description=result,
+                color=discord.Color.red()
+            )
+        else:
+            result_embed = discord.Embed(
+                title="📋 Kết quả Quiz",
+                description=result,
+                color=discord.Color.blue()
+            )
+        
+        result_embed.add_field(name="👤 Người yêu cầu", value=ctx.author.mention, inline=True)
+        result_embed.add_field(name="🔑 Request ID", value=f"`{request_id[:16]}`", inline=True)
+        result_embed.add_field(name="📝 Quiz ID", value=f"`{quiz_id}`", inline=True)
+        if num_questions != "?":
+            result_embed.add_field(name="❓ Số câu hỏi", value=f"`{num_questions}`", inline=True)
+        result_embed.set_footer(text=f"Session: {session_id[:8]}...")
+        
+        await status_msg.edit(embed=result_embed)
+    except Exception as e:
+        logging.error(f"[{request_id}] Lỗi quiz: {e}")
+        error_embed = discord.Embed(
+            title="❌ Lỗi",
+            description=f"Đã có lỗi xảy ra khi xử lý quiz: {str(e)}",
+            color=discord.Color.red()
+        )
+        error_embed.add_field(name="👤 Người yêu cầu", value=ctx.author.mention, inline=True)
+        error_embed.add_field(name="🔑 Request ID", value=f"`{request_id[:16]}`", inline=True)
+        error_embed.add_field(name="📝 Quiz ID", value=f"`{quiz_id}`", inline=True)
+        await status_msg.edit(embed=error_embed)
+        raise
 
 @bot.command(name='add_quiz')
 async def add_quiz_command(ctx, id: int, quiz_ids: str, starts: str, amounts: str):
@@ -206,7 +373,14 @@ async def show_quiz_command(ctx, id: int):
         except Exception as e2:
             await ctx.send(f"❌ Không thể đọc dữ liệu quiz: {e2}")
 
-bot.run(TOKEN)
-
-
-
+if __name__ == "__main__":
+    if not TOKEN:
+        logging.error("❌ Không tìm thấy BOT_TOKEN trong file .env")
+        print("❌ Vui lòng thêm BOT_TOKEN vào file .env")
+    else:
+        try:
+            logging.info("🚀 Đang khởi động bot...")
+            bot.run(TOKEN)
+        except Exception as e:
+            logging.error(f"❌ Lỗi khi khởi động bot: {e}")
+            print(f"❌ Lỗi: {e}")
