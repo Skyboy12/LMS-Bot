@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>LMS PTIT Session ID</title>
+    <style> 
+        body {
+            width: 300px;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #007cba;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .btn:hover {
+            background-color: #005a8b;
+        }
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            word-wrap: break-word;
+            font-family: monospace;
+            font-size: 12px;
+            min-height: 20px;
+            white-space: pre-wrap;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .success {
+            color: #155724;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            color: #721c24;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+        .copy-btn {
+            width: 100%;
+            padding: 5px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+        .copy-btn:hover {
+            background-color: #1e7e34;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h3>LMS PTIT Session ID Tool</h3>
+    </div>
+    
+    <button id="getSessionIdBtn" class="btn">Lấy Session ID</button>
+    <button id="debugBtn" class="btn" style="background-color: #ffc107; color: #000;">Debug Info</button>
+    <button id="copyBtn" class="copy-btn">Copy Session ID</button>
+    <div id="result" class="result">Nhấn nút để lấy session_id từ cookie...</div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

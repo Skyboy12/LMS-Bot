@@ -1,0 +1,166 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "title": "Chủ nghĩa xã hội khoa học",
+      "url": "https://lms.ptit.edu.vn/slides/bas1152-chu-nghia-xa-hoi-khoa-hoc-1",
+      "file": "d:\\LMS - server\\downloaded_courses\\Chủ nghĩa xã hội khoa học.html"
+    },
+    {
+      "id": 2,
+      "title": "Kinh tế chính trị Mác-Lênin",
+      "url": "https://lms.ptit.edu.vn/slides/bas1151-kinh-te-chinh-tri-mac-lenin-2",
+      "file": "d:\\LMS - server\\downloaded_courses\\Kinh tế chính trị Mác-Lênin.html"
+    },
+    {
+      "id": 3,
+      "title": "Triết học Mác - Lênin",
+      "url": "https://lms.ptit.edu.vn/slides/bas1150-triet-hoc-mac-lenin-3",
+      "file": "d:\\LMS - server\\downloaded_courses\\Triết học Mác - Lênin.html"
+    },
+    {
+      "id": 4,
+      "title": "Lịch sử Đảng Cộng sản Việt Nam",
+      "url": "https://lms.ptit.edu.vn/slides/bas1153-lich-su-ang-cong-san-viet-nam-4",
+      "file": "d:\\LMS - server\\downloaded_courses\\Lịch sử Đảng Cộng sản Việt Nam.html"
+    },
+    {
+      "id": 5,
+      "title": "Tư tưởng Hồ Chí Minh",
+      "url": "https://lms.ptit.edu.vn/slides/bas1122-tu-tuong-ho-chi-minh-5",
+      "file": "d:\\LMS - server\\downloaded_courses\\Tư tưởng Hồ Chí Minh.html"
+    },
+    {
+      "id": 6,
+      "title": "Introduction to Digital Technology and AI Applications",
+      "url": "https://lms.ptit.edu.vn/slides/int11205-introduction-to-digital-technology-and-ai-applications-31",
+      "file": "d:\\LMS - server\\downloaded_courses\\Introduction to Digital Technology and AI Applications.html"
+    },
+    {
+      "id": 7,
+      "title": "Nền tảng phát triển trí tuệ nhân tạo",
+      "url": "https://lms.ptit.edu.vn/slides/nen-tang-phat-trien-tri-tue-nhan-tao-nen-tang-phat-trien-tri-tue-nhan-tao-33",
+      "file": "d:\\LMS - server\\downloaded_courses\\Nền tảng phát triển trí tuệ nhân tạo.html"
+    },
+    {
+      "id": 8,
+      "title": "Trí tuệ nhân tạo cho tính toán biên",
+      "url": "https://lms.ptit.edu.vn/slides/tri-tue-nhan-tao-cho-tinh-toan-bien-tri-tue-nhan-tao-cho-tinh-toan-bien-34",
+      "file": "d:\\LMS - server\\downloaded_courses\\Trí tuệ nhân tạo cho tính toán biên.html"
+    },
+    {
+      "id": 9,
+      "title": "Phân tích dữ liệu chuỗi thời gian",
+      "url": "https://lms.ptit.edu.vn/slides/phan-tich-du-lieu-chuoi-thoi-gian-phan-tich-du-lieu-chuoi-thoi-gian-35",
+      "file": "d:\\LMS - server\\downloaded_courses\\Phân tích dữ liệu chuỗi thời gian.html"
+    },
+    {
+      "id": 10,
+      "title": "Các hệ thống phân tán",
+      "url": "https://lms.ptit.edu.vn/slides/cac-he-thong-phan-tan-cac-he-thong-phan-tan-36",
+      "file": "d:\\LMS - server\\downloaded_courses\\Các hệ thống phân tán.html"
+    },
+    {
+      "id": 11,
+      "title": "Truy xuất thông tin",
+      "url": "https://lms.ptit.edu.vn/slides/truy-xuat-thong-tin-truy-xuat-thong-tin-37",
+      "file": "d:\\LMS - server\\downloaded_courses\\Truy xuất thông tin.html"
+    },
+    {
+      "id": 12,
+      "title": "Mô hình ngôn ngữ lớn",
+      "url": "https://lms.ptit.edu.vn/slides/mo-hinh-ngon-ngu-lon-mo-hinh-ngon-ngu-lon-38",
+      "file": "d:\\LMS - server\\downloaded_courses\\Mô hình ngôn ngữ lớn.html"
+    },
+    {
+      "id": 13,
+      "title": "Thị giác máy tính",
+      "url": "https://lms.ptit.edu.vn/slides/thi-giac-may-tinh-thi-giac-may-tinh-39",
+      "file": "d:\\LMS - server\\downloaded_courses\\Thị giác máy tính.html"
+    },
+    {
+      "id": 14,
+      "title": "Hệ điều hành",
+      "url": "https://lms.ptit.edu.vn/slides/he-ieu-hanh-he-ieu-hanh-40",
+      "file": "d:\\LMS - server\\downloaded_courses\\Hệ điều hành.html"
+    },
+    {
+      "id": 15,
+      "title": "Cấu trúc dữ liệu và giải thuật",
+      "url": "https://lms.ptit.edu.vn/slides/cau-truc-du-lieu-va-giai-thuat-cau-truc-du-lieu-va-giai-thuat-41",
+      "file": "d:\\LMS - server\\downloaded_courses\\Cấu trúc dữ liệu và giải thuật.html"
+    },
+    {
+      "id": 16,
+      "title": "Lập trình hướng đối tượng với Java",
+      "url": "https://lms.ptit.edu.vn/slides/lap-trinh-huong-oi-tuong-voi-java-lap-trinh-huong-oi-tuong-voi-java-42",
+      "file": "d:\\LMS - server\\downloaded_courses\\Lập trình hướng đối tượng với Java.html"
+    },
+    {
+      "id": 17,
+      "title": "Phát triển web toàn diện",
+      "url": "https://lms.ptit.edu.vn/slides/phat-trien-web-toan-dien-phat-trien-web-toan-dien-43",
+      "file": "d:\\LMS - server\\downloaded_courses\\Phát triển web toàn diện.html"
+    },
+    {
+      "id": 18,
+      "title": "Phát triển ứng dụng di động (Android & iOS)",
+      "url": "https://lms.ptit.edu.vn/slides/phat-trien-ung-dung-di-ong-android-ios-phat-trien-ung-dung-di-ong-android-ios-44",
+      "file": "d:\\LMS - server\\downloaded_courses\\Phát triển ứng dụng di động (Android & iOS).html"
+    },
+    {
+      "id": 19,
+      "title": "Cơ sở dữ liệu",
+      "url": "https://lms.ptit.edu.vn/slides/co-so-du-lieu-co-so-du-lieu-45",
+      "file": "d:\\LMS - server\\downloaded_courses\\Cơ sở dữ liệu.html"
+    },
+    {
+      "id": 20,
+      "title": "Nhập môn công nghệ phần mềm",
+      "url": "https://lms.ptit.edu.vn/slides/nhap-mon-cong-nghe-phan-mem-nhap-mon-cong-nghe-phan-mem-46",
+      "file": "d:\\LMS - server\\downloaded_courses\\Nhập môn công nghệ phần mềm.html"
+    },
+    {
+      "id": 21,
+      "title": "Nguyên lý kinh tế học vi mô",
+      "url": "https://lms.ptit.edu.vn/slides/nguyen-ly-kinh-te-hoc-vi-mo-nguyen-ly-kinh-te-hoc-vi-mo-47",
+      "file": "d:\\LMS - server\\downloaded_courses\\Nguyên lý kinh tế học vi mô.html"
+    },
+    {
+      "id": 22,
+      "title": "Nguyên lý kinh tế học vĩ mô",
+      "url": "https://lms.ptit.edu.vn/slides/nguyen-ly-kinh-te-hoc-vi-mo-nguyen-ly-kinh-te-hoc-vi-mo-48",
+      "file": "d:\\LMS - server\\downloaded_courses\\Nguyên lý kinh tế học vĩ mô.html"
+    },
+    {
+      "id": 23,
+      "title": "Kinh tế lượng",
+      "url": "https://lms.ptit.edu.vn/slides/kinh-te-luong-kinh-te-luong-49",
+      "file": "d:\\LMS - server\\downloaded_courses\\Kinh tế lượng.html"
+    },
+    {
+      "id": 24,
+      "title": "Kinh doanh quốc tế",
+      "url": "https://lms.ptit.edu.vn/slides/kinh-doanh-quoc-te-kinh-doanh-quoc-te-50",
+      "file": "d:\\LMS - server\\downloaded_courses\\Kinh doanh quốc tế.html"
+    },
+    {
+      "id": 25,
+      "title": "Logistics căn bản",
+      "url": "https://lms.ptit.edu.vn/slides/logistics-can-ban-logistics-can-ban-51",
+      "file": "d:\\LMS - server\\downloaded_courses\\Logistics căn bản.html"
+    },
+    {
+      "id": 26,
+      "title": "Thương mại điện tử căn bản",
+      "url": "https://lms.ptit.edu.vn/slides/thuong-mai-ien-tu-can-ban-thuong-mai-ien-tu-can-ban-52",
+      "file": "d:\\LMS - server\\downloaded_courses\\Thương mại điện tử căn bản.html"
+    },
+    {
+      "id": 27,
+      "title": "Nhập môn lập trình với Python",
+      "url": "https://lms.ptit.edu.vn/slides/python-nhap-mon-lap-trinh-voi-python-55",
+      "file": "d:\\LMS - server\\downloaded_courses\\Nhập môn lập trình với Python.html"
+    }
+  ]
+}

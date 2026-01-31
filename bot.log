@@ -1,0 +1,230 @@
+2025-08-22 10:01:56,626 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2025-08-22 10:01:56,629 [INFO] logging in using static token
+2025-08-22 10:01:58,169 [INFO] Shard ID None has connected to Gateway (Session ID: 6ebb39f02b780b3c782288b6faa1fd30).
+2025-08-22 10:02:00,181 [INFO] Logged in as LMS Bot (1407787373856559196)
+2025-08-22 10:02:00,182 [INFO] --------------------
+2025-08-22 10:03:11,812 [INFO] User skymyname#0 đã gửi lệnh slide với session_id: 069e0ba4a1d44243e92c81dfd906c9d07a579659 và slide_id: 23.
+2025-08-22 10:03:13,304 [INFO] {'jsonrpc': '2.0', 'id': 0, 'result': {'channel_completion': 100, 'next_category_id': False}}
+2025-08-22 10:04:10,165 [INFO] User skymyname#0 đã gửi lệnh slide với session_id: 069e0ba4a1d44243e92c81dfd906c9d07a579659 và slide_id: 2.
+2025-08-22 10:04:11,653 [INFO] {'jsonrpc': '2.0', 'id': 0, 'error': {'code': 200, 'message': 'Odoo Server Error', 'data': {'name': 'odoo.exceptions.UserError', 'debug': 'Traceback (most recent call last):\n  File "/home/giaovu/lms_17/lms/odoo/http.py", line 1765, in _serve_db\n    return service_model.retrying(self._serve_ir_http, self.env)\n  File "/home/giaovu/lms_17/lms/odoo/service/model.py", line 133, in retrying\n    result = func()\n  File "/home/giaovu/lms_17/lms/odoo/http.py", line 1792, in _serve_ir_http\n    response = self.dispatcher.dispatch(rule.endpoint, args)\n  File "/home/giaovu/lms_17/lms/odoo/http.py", line 1996, in dispatch\n    result = self.request.registry[\'ir.http\']._dispatch(endpoint)\n  File "/home/giaovu/lms_17/lms/addons/website/models/ir_http.py", line 235, in _dispatch\n    response = super()._dispatch(endpoint)\n  File "/home/giaovu/lms_17/lms/odoo/addons/base/models/ir_http.py", line 222, in _dispatch\n    result = endpoint(**request.params)\n  File "/home/giaovu/lms_17/lms/odoo/http.py", line 722, in route_wrapper\n    result = endpoint(self, *args, **params_ok)\n  File "/home/giaovu/lms_17/lms/my_addons/website_slides_plus/controllers/main.py", line 122, in slide_set_completed\n    raise UserError(_("Không thể đánh dấu hoàn thành /khóa học này"))\nodoo.exceptions.UserError: Không thể đánh dấu hoàn thành /khóa học này\n', 'message': 'Không thể đánh dấu hoàn thành /khóa học này', 'arguments': ['Không thể đánh dấu hoàn thành /khóa học này'], 'context': {}}}}
+2025-08-28 09:01:35,370 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2025-08-28 09:01:35,373 [INFO] logging in using static token
+2025-08-28 09:01:37,521 [INFO] Shard ID None has connected to Gateway (Session ID: 6597e4c87d830d9d0ee7de508ea5ddba).
+2025-08-28 09:01:39,533 [INFO] Logged in as LMS Bot (1407787373856559196)
+2025-08-28 09:01:39,534 [INFO] --------------------
+2025-08-28 09:04:09,497 [INFO] User skymyname#0 đã gửi lệnh slide với session_id: 069e0ba4a1d44243e92c81dfd906c9d07a579659 và slide_id: 2.
+2025-08-28 09:04:11,184 [INFO] {'jsonrpc': '2.0', 'id': 0, 'error': {'code': 200, 'message': 'Odoo Server Error', 'data': {'name': 'odoo.exceptions.UserError', 'debug': 'Traceback (most recent call last):\n  File "/home/giaovu/lms_17/lms/odoo/http.py", line 1765, in _serve_db\n    return service_model.retrying(self._serve_ir_http, self.env)\n  File "/home/giaovu/lms_17/lms/odoo/service/model.py", line 133, in retrying\n    result = func()\n  File "/home/giaovu/lms_17/lms/odoo/http.py", line 1792, in _serve_ir_http\n    response = self.dispatcher.dispatch(rule.endpoint, args)\n  File "/home/giaovu/lms_17/lms/odoo/http.py", line 1996, in dispatch\n    result = self.request.registry[\'ir.http\']._dispatch(endpoint)\n  File "/home/giaovu/lms_17/lms/addons/website/models/ir_http.py", line 235, in _dispatch\n    response = super()._dispatch(endpoint)\n  File "/home/giaovu/lms_17/lms/odoo/addons/base/models/ir_http.py", line 222, in _dispatch\n    result = endpoint(**request.params)\n  File "/home/giaovu/lms_17/lms/odoo/http.py", line 722, in route_wrapper\n    result = endpoint(self, *args, **params_ok)\n  File "/home/giaovu/lms_17/lms/my_addons/website_slides_plus/controllers/main.py", line 122, in slide_set_completed\n    raise UserError(_("Không thể đánh dấu hoàn thành /khóa học này"))\nodoo.exceptions.UserError: Không thể đánh dấu hoàn thành /khóa học này\n', 'message': 'Không thể đánh dấu hoàn thành /khóa học này', 'arguments': ['Không thể đánh dấu hoàn thành /khóa học này'], 'context': {}}}}
+2025-08-28 09:15:09,862 [INFO] User skymyname#0 đã gửi lệnh slide với session_id: 069e0ba4a1d44243e92c81dfd906c9d07a579659 và slide_id: 1.
+2025-08-28 09:15:10,984 [INFO] {'jsonrpc': '2.0', 'id': 0, 'result': {'error': 'slide_access'}}
+2025-08-28 09:17:41,581 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2025-08-28 09:17:41,586 [INFO] logging in using static token
+2025-08-28 09:17:44,974 [INFO] Shard ID None has connected to Gateway (Session ID: 6b48592fa3b983ddc030f0beb7f3cd2b).
+2025-08-28 09:17:47,002 [INFO] Logged in as LMS Bot (1407787373856559196)
+2025-08-28 09:17:47,003 [INFO] --------------------
+2025-08-28 09:18:04,839 [INFO] User skymyname#0 đã gửi lệnh slide với session_id: 069e0ba4a1d44243e92c81dfd906c9d07a579659 và slide_id: 2.
+2025-08-28 09:18:06,919 [INFO] {'jsonrpc': '2.0', 'id': 0, 'error': {'code': 200, 'message': 'Odoo Server Error', 'data': {'name': 'odoo.exceptions.UserError', 'debug': 'Traceback (most recent call last):\n  File "/home/giaovu/lms_17/lms/odoo/http.py", line 1765, in _serve_db\n    return service_model.retrying(self._serve_ir_http, self.env)\n  File "/home/giaovu/lms_17/lms/odoo/service/model.py", line 133, in retrying\n    result = func()\n  File "/home/giaovu/lms_17/lms/odoo/http.py", line 1792, in _serve_ir_http\n    response = self.dispatcher.dispatch(rule.endpoint, args)\n  File "/home/giaovu/lms_17/lms/odoo/http.py", line 1996, in dispatch\n    result = self.request.registry[\'ir.http\']._dispatch(endpoint)\n  File "/home/giaovu/lms_17/lms/addons/website/models/ir_http.py", line 235, in _dispatch\n    response = super()._dispatch(endpoint)\n  File "/home/giaovu/lms_17/lms/odoo/addons/base/models/ir_http.py", line 222, in _dispatch\n    result = endpoint(**request.params)\n  File "/home/giaovu/lms_17/lms/odoo/http.py", line 722, in route_wrapper\n    result = endpoint(self, *args, **params_ok)\n  File "/home/giaovu/lms_17/lms/my_addons/website_slides_plus/controllers/main.py", line 122, in slide_set_completed\n    raise UserError(_("Không thể đánh dấu hoàn thành /khóa học này"))\nodoo.exceptions.UserError: Không thể đánh dấu hoàn thành /khóa học này\n', 'message': 'Không thể đánh dấu hoàn thành /khóa học này', 'arguments': ['Không thể đánh dấu hoàn thành /khóa học này'], 'context': {}}}}
+2025-08-28 09:19:10,482 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2025-08-28 09:19:10,485 [INFO] logging in using static token
+2025-08-28 09:19:12,218 [INFO] Shard ID None has connected to Gateway (Session ID: 441405f3db3d3116adc40a2729598584).
+2025-08-28 09:19:14,228 [INFO] Logged in as LMS Bot (1407787373856559196)
+2025-08-28 09:19:14,229 [INFO] --------------------
+2025-08-28 09:19:16,562 [INFO] User skymyname#0 đã gửi lệnh slide với session_id: 069e0ba4a1d44243e92c81dfd906c9d07a579659 và slide_id: 2.
+2025-08-28 09:19:17,874 [INFO] {'jsonrpc': '2.0', 'id': 0, 'error': {'code': 200, 'message': 'Odoo Server Error', 'data': {'name': 'odoo.exceptions.UserError', 'debug': 'Traceback (most recent call last):\n  File "/home/giaovu/lms_17/lms/odoo/http.py", line 1765, in _serve_db\n    return service_model.retrying(self._serve_ir_http, self.env)\n  File "/home/giaovu/lms_17/lms/odoo/service/model.py", line 133, in retrying\n    result = func()\n  File "/home/giaovu/lms_17/lms/odoo/http.py", line 1792, in _serve_ir_http\n    response = self.dispatcher.dispatch(rule.endpoint, args)\n  File "/home/giaovu/lms_17/lms/odoo/http.py", line 1996, in dispatch\n    result = self.request.registry[\'ir.http\']._dispatch(endpoint)\n  File "/home/giaovu/lms_17/lms/addons/website/models/ir_http.py", line 235, in _dispatch\n    response = super()._dispatch(endpoint)\n  File "/home/giaovu/lms_17/lms/odoo/addons/base/models/ir_http.py", line 222, in _dispatch\n    result = endpoint(**request.params)\n  File "/home/giaovu/lms_17/lms/odoo/http.py", line 722, in route_wrapper\n    result = endpoint(self, *args, **params_ok)\n  File "/home/giaovu/lms_17/lms/my_addons/website_slides_plus/controllers/main.py", line 122, in slide_set_completed\n    raise UserError(_("Không thể đánh dấu hoàn thành /khóa học này"))\nodoo.exceptions.UserError: Không thể đánh dấu hoàn thành /khóa học này\n', 'message': 'Không thể đánh dấu hoàn thành /khóa học này', 'arguments': ['Không thể đánh dấu hoàn thành /khóa học này'], 'context': {}}}}
+2025-08-28 09:34:19,235 [INFO] Shard ID None has successfully RESUMED session 441405f3db3d3116adc40a2729598584.
+2025-08-28 10:08:20,957 [INFO] Shard ID None has successfully RESUMED session 441405f3db3d3116adc40a2729598584.
+2025-09-04 09:01:41,855 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2025-09-04 09:01:41,859 [INFO] logging in using static token
+2025-09-04 09:01:43,442 [INFO] Shard ID None has connected to Gateway (Session ID: abb81eebf0a262cd4734f9ba8aaa3d36).
+2025-09-04 09:01:45,449 [INFO] Logged in as LMS Bot (1407787373856559196)
+2025-09-04 09:01:45,449 [INFO] --------------------
+2025-09-04 09:02:46,863 [INFO] User skymyname#0 đã gửi lệnh slide với session_id: 732bd9f5442863033200aa6b951f2931f3f85cde và slide_id: 2.
+2025-09-04 09:02:48,371 [INFO] {'jsonrpc': '2.0', 'id': 0, 'result': {'channel_completion': 4, 'next_category_id': False}}
+2025-09-04 09:03:19,550 [INFO] User skymyname#0 đã gửi lệnh slide với session_id: 732bd9f5442863033200aa6b951f2931f3f85cde và slide_id: 3.
+2025-09-04 09:03:21,185 [INFO] {'jsonrpc': '2.0', 'id': 0, 'result': {'channel_completion': 7, 'next_category_id': False}}
+2025-09-04 09:07:40,912 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2025-09-04 09:07:40,914 [INFO] logging in using static token
+2025-09-04 09:07:42,807 [INFO] Shard ID None has connected to Gateway (Session ID: 2753b6c69c884e5d359566e99670d0f5).
+2025-09-04 09:07:44,812 [INFO] Logged in as LMS Bot (1407787373856559196)
+2025-09-04 09:07:44,816 [INFO] --------------------
+2025-09-04 09:07:57,495 [INFO] User skymyname#0 đã gửi lệnh slide với session_id: 732bd9f5442863033200aa6b951f2931f3f85cde và slide_id: 2.
+2025-09-04 09:07:59,302 [INFO] {'jsonrpc': '2.0', 'id': 0, 'result': {'channel_completion': 7, 'next_category_id': False}}
+2025-09-04 09:09:57,228 [INFO] User skymyname#0 đã gửi lệnh add_quiz với quiz_id: 77, start: 1, amount: 10.
+2025-09-04 09:10:09,946 [INFO] User skymyname#0 đã gửi lệnh quiz với session_id: 732bd9f5442863033200aa6b951f2931f3f85cde và quiz_id: 77.
+2025-11-27 10:52:56,988 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2025-11-27 10:55:19,697 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2025-11-27 10:56:01,198 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2025-11-27 10:56:01,199 [INFO] 🚀 Đang khởi động bot...
+2025-11-27 10:56:01,203 [INFO] logging in using static token
+2025-11-27 10:56:03,088 [INFO] Shard ID None has connected to Gateway (Session ID: 6f73bed985eb8ccd1b7535c0075753c4).
+2025-11-27 10:56:05,110 [INFO] Logged in as LMS Bot (1330451995919912960)
+2025-11-27 10:56:05,111 [INFO] --------------------
+2025-11-27 10:56:19,744 [INFO] User skymyname#0 đã gửi lệnh ping.
+2025-11-27 10:56:20,596 [INFO] Ping result: online - 60.62ms
+2025-11-27 10:56:52,021 [INFO] [924277442363936768-1764215812] User skymyname#0 đã gửi lệnh slide với session_id: 223b0c0b... và slide_id: 55.
+2025-11-27 10:56:52,674 [INFO] [924277442363936768-1764215812] Response: {'jsonrpc': '2.0', 'id': 0, 'error': {'code': 200, 'message': 'Odoo Server Error', 'data': {'name': 'odoo.exceptions.UserError', 'debug': 'Traceback (most recent call last):\n  File "/home/giaovu/lms_17/lms/odoo/http.py", line 1765, in _serve_db\n    return service_model.retrying(self._serve_ir_http, self.env)\n  File "/home/giaovu/lms_17/lms/odoo/service/model.py", line 133, in retrying\n    result = func()\n  File "/home/giaovu/lms_17/lms/odoo/http.py", line 1792, in _serve_ir_http\n    response = self.dispatcher.dispatch(rule.endpoint, args)\n  File "/home/giaovu/lms_17/lms/odoo/http.py", line 1996, in dispatch\n    result = self.request.registry[\'ir.http\']._dispatch(endpoint)\n  File "/home/giaovu/lms_17/lms/addons/website/models/ir_http.py", line 235, in _dispatch\n    response = super()._dispatch(endpoint)\n  File "/home/giaovu/lms_17/lms/odoo/addons/base/models/ir_http.py", line 222, in _dispatch\n    result = endpoint(**request.params)\n  File "/home/giaovu/lms_17/lms/odoo/http.py", line 722, in route_wrapper\n    result = endpoint(self, *args, **params_ok)\n  File "/home/giaovu/lms_17/lms/my_addons/website_slides_plus/controllers/main.py", line 152, in slide_set_completed\n    raise UserError(_("Không thể đánh dấu hoàn thành /khóa học này"))\nodoo.exceptions.UserError: Không thể đánh dấu hoàn thành /khóa học này\n', 'message': 'Không thể đánh dấu hoàn thành /khóa học này', 'arguments': ['Không thể đánh dấu hoàn thành /khóa học này'], 'context': {}}}}
+2025-11-27 10:57:13,299 [INFO] [924277442363936768-1764215833] User skymyname#0 đã gửi lệnh quiz với session_id: 23b0c0bb... và quiz_id: 115.
+2025-11-27 11:05:52,153 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2025-11-27 11:05:52,155 [INFO] 🚀 Đang khởi động bot...
+2025-11-27 11:05:52,157 [INFO] logging in using static token
+2025-11-27 11:05:54,229 [INFO] Shard ID None has connected to Gateway (Session ID: 0a22a3fd0536cb374365c81200306619).
+2025-11-27 11:05:56,243 [INFO] Logged in as LMS Bot (1330451995919912960)
+2025-11-27 11:05:56,245 [INFO] --------------------
+2025-11-27 11:06:02,557 [INFO] [924277442363936768-1764216362] User skymyname#0 đã gửi lệnh quiz với session_id: 23b0c0bb... và quiz_id: 115.
+2025-11-27 11:09:31,643 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2025-11-27 11:09:31,645 [INFO] 🚀 Đang khởi động bot...
+2025-11-27 11:09:31,646 [INFO] logging in using static token
+2025-11-27 11:09:33,870 [INFO] Shard ID None has connected to Gateway (Session ID: 658bcd89d12ce5cb3932b67a6baf2273).
+2025-11-27 11:09:35,879 [INFO] Logged in as LMS Bot (1330451995919912960)
+2025-11-27 11:09:35,883 [INFO] --------------------
+2025-11-27 11:09:41,154 [INFO] [924277442363936768-1764216581] User skymyname#0 đã gửi lệnh quiz với session_id: 23b0c0bb... và quiz_id: 115.
+2025-11-27 11:09:41,743 [INFO] [924277442363936768-1764216581] Quiz result: ⏩ 115 Session không hợp lệ hoặc đã hết hạn (public_user). Hãy đăng nhập lại.
+2026-01-29 15:53:51,700 [WARNING] PyNaCl is not installed, voice will NOT be supported
+2026-01-29 15:53:51,702 [INFO] 🚀 Đang khởi động bot...
+2026-01-29 15:53:51,704 [INFO] logging in using static token
+2026-01-29 15:54:10,336 [INFO] Shard ID None has connected to Gateway (Session ID: a3dd103761df499a4e0fb660b047f104).
+2026-01-29 15:54:12,485 [INFO] Logged in as LMS Bot (1330451995919912960)
+2026-01-29 15:54:12,486 [INFO] --------------------
+2026-01-29 15:54:58,664 [INFO] User skymyname#0 đã gửi lệnh ping.
+2026-01-29 15:55:08,664 [INFO] Ping result: online - 8566.07ms
+2026-01-29 16:14:48,402 [ERROR] Attempting a reconnect in 0.83s
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiohttp\connector.py", line 1532, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiohttp\connector.py", line 1148, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiohttp\connector.py", line 1179, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiohttp\resolver.py", line 40, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 939, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 977, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 724, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\asyncio\tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\gateway.py", line 383, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\http.py", line 566, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiohttp\client.py", line 1067, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiohttp\client.py", line 770, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiohttp\client.py", line 725, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiohttp\connector.py", line 642, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiohttp\connector.py", line 1209, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiohttp\connector.py", line 1538, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway-us-east1-c.discord.gg:443 ssl:default [getaddrinfo failed]
+2026-01-29 16:14:49,586 [ERROR] Attempting a reconnect in 3.37s
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiohttp\connector.py", line 1532, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiohttp\connector.py", line 1148, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiohttp\connector.py", line 1179, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiohttp\resolver.py", line 40, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 939, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 977, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 724, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\asyncio\tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\gateway.py", line 383, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\http.py", line 566, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiohttp\client.py", line 1067, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiohttp\client.py", line 770, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiohttp\client.py", line 725, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiohttp\connector.py", line 642, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiohttp\connector.py", line 1209, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiohttp\connector.py", line 1538, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway-us-east1-c.discord.gg:443 ssl:default [getaddrinfo failed]
+2026-01-29 16:54:02,498 [INFO] Shard ID None session has been invalidated.
+2026-01-29 16:54:08,932 [INFO] Shard ID None has connected to Gateway (Session ID: 9026dfe4fda4ee484abaf873e72eb25e).
+2026-01-29 16:54:11,265 [INFO] Logged in as LMS Bot (1330451995919912960)
+2026-01-29 16:54:11,266 [INFO] --------------------

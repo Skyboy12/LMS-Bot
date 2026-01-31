@@ -1,0 +1,52 @@
+[
+  {
+    "data_question_id": 255,
+    "first_answer_id": 995,
+    "answer_count": 2
+  },
+  {
+    "data_question_id": 253,
+    "first_answer_id": 987,
+    "answer_count": 4
+  },
+  {
+    "data_question_id": 254,
+    "first_answer_id": 991,
+    "answer_count": 4
+  },
+  {
+    "data_question_id": 256,
+    "first_answer_id": 997,
+    "answer_count": 4
+  },
+  {
+    "data_question_id": 257,
+    "first_answer_id": 1001,
+    "answer_count": 4
+  },
+  {
+    "data_question_id": 650,
+    "first_answer_id": 2560,
+    "answer_count": 2
+  },
+  {
+    "data_question_id": 651,
+    "first_answer_id": 2562,
+    "answer_count": 4
+  },
+  {
+    "data_question_id": 652,
+    "first_answer_id": 2566,
+    "answer_count": 4
+  },
+  {
+    "data_question_id": 653,
+    "first_answer_id": 2570,
+    "answer_count": 4
+  },
+  {
+    "data_question_id": 654,
+    "first_answer_id": 2574,
+    "answer_count": 4
+  }
+]
