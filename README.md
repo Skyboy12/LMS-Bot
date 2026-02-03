@@ -41,7 +41,6 @@ python discord_bot.py
 - `!ping` — Kiểm tra bot có hoạt động không.
 - `!slide <session_id> <slide_id>` — Hoàn thành một slide.
 - `!quiz <session_id> <quiz_id>` — Chạy tự động quiz (tìm đáp án đúng).
-- `!course <session_id> <course_id>` — Chạy tự động tất cả slides và quizzes của một khóa học.
 - `!all <session_id>` — Chạy tự động tất cả slides và quizzes của tất cả khóa học (với progress bar).
 - `!add_quiz <id> <quiz_ids> <starts> <amounts>` — Thêm dữ liệu quiz. Chấp nhận mảng JSON hoặc danh sách phân tách bằng dấu phẩy.
 - `!show_quiz <id>` — Hiển thị dữ liệu quiz cho ID đã cho.
@@ -51,7 +50,6 @@ python discord_bot.py
 !ping
 !slide SESSION_ID 123
 !quiz SESSION_ID 123
-!course SESSION_ID 5
 !all SESSION_ID
 !add_quiz 150 "[1001,1002,1003]" "[0,0,1]" "[4,4,2]"
 !show_quiz 150
