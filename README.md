@@ -1,4 +1,4 @@
-# Bot Discord LMS
+# Bot Discord LMS (DEAD-No longer working)
 
 Bot Discord này giúp tương tác với slide và quiz trên hệ thống LMS PTIT. Bot cho phép người dùng tự động hoàn thành slide, gửi đáp án quiz và quản lý dữ liệu quiz trực tiếp từ Discord.
 
